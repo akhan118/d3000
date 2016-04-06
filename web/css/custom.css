@@ -1,0 +1,168 @@
+
+#search_button
+{
+   margin-left: 20px;
+
+}
+
+#dictionary_input_trans
+{   
+    width:180px;
+    float: right;
+}
+
+#trans_submit_button{
+   margin-right: 14px;
+}
+
+
+.h2_border
+{
+    
+    
+}
+.thumb{
+            display: none;
+
+}
+.mbox-text
+{
+        display: none;
+
+}
+.mbox-image
+{
+        display: none;
+
+}
+
+.infobox{
+    display: none;
+}
+
+.audio_icon
+{
+    color: #307DBC;
+}
+
+
+/// smallest screen size iphone4
+@media (max-width: 321px) {
+   
+    #dictionary_input_trans
+{   
+    width:180px;
+    float: right;
+}
+
+#trans_submit_button{
+   margin-right: 14px;
+}
+
+}
+
+
+@media (max-width: 767px) {
+    .custom_brand_collaps {
+
+        display: none;
+        font-family:initial
+
+    }
+
+/*    #dictionary_input_trans
+{   
+    width:300px;
+    float: right;
+}
+
+#trans_submit_button{
+   margin-right: 14px;
+}*/
+
+        .glyphicon_horse {
+
+        top: 12px;
+    }
+    
+    .navbar-toggle {
+    margin-top: 19px;
+       margin-left: 5px;
+}
+
+
+.margin_top_wfd
+{
+    margin-top: 10px;
+}
+}
+
+.metadata
+{
+    display: none;
+}
+.error{
+
+    display: none;
+}
+
+#transNav {
+
+    background-color: #00000;
+    border-color: #00000;
+    color: #fff !important;
+
+}
+
+#myNavbar {
+
+    background-color: #26539C;
+    border-color: #26539C;
+    color: #fff !important;
+
+}
+
+.navbar-inverse .navbar-brand {
+    color:#fff;
+}
+
+
+@media (min-width: 768px) {
+    .custom_nav_form {
+
+        float: left !important;
+        width: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-right: 0;
+        margin-left: 0;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        display: block;
+    }
+
+#dictionary_input_trans
+{   
+    width:200px;
+    float: right;
+}
+
+}
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .custom_links_nav {
+
+        float: right !important;
+
+    }
+    
+
+
+}
