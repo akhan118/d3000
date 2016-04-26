@@ -8,17 +8,13 @@ use yii\helpers\Url;
 localAssets::register($this);
 
 
-if($lang =='Arabic'){
-$this->title = $lang.' English Dictionary |قاموس عربي انجليز  ';
 
-}
-else{
-   $this->title = $lang.' English Dictionary';
- 
-}
+$this->title = 'Arabic English Dictionary |قاموس عربي انجليز  ';
+
+
 
 $this->params['breadcrumbs'][] = ['label' => 'Translators', 'url' => ['/translator']];
-$this->params['breadcrumbs'][] = $lang.' English Dictionary';
+$this->params['breadcrumbs'][] = 'Arabic English Dictionary';
 
 ?>
 
@@ -33,7 +29,7 @@ $this->params['breadcrumbs'][] = $lang.' English Dictionary';
         
      <div class="col-sm-offset-4 col-md-offset-4 col-lg-offset-4 col-sm-5 col-md-4 col-lg-5 form-inline">
 
-         <form id="w0" class="" action="<?php echo Url::to(['/translator/'.  strtolower($lang).'/translation']) ?>" method="get" role="search"><div class="form-group field-dictionary-input">
+         <form id="w0" class="" action="<?php echo Url::to(['/translator/arabic/translation']) ?>" method="get" role="search"><div class="form-group field-dictionary-input">
 <label class="control-label" for="dictionary-input"></label>
 <input type="text" id="dictionary-input" class="form-control keyboardInput" name="Dictionary[input]">
 
@@ -57,7 +53,7 @@ $this->params['breadcrumbs'][] = $lang.' English Dictionary';
                             <h1 class="h2_border">
                                 <?php
                                 $definitions = $word_of_the_day->definitions;
-                                echo Html::a(str_replace("'", "", $word_of_the_day->word), ['/translator/'.strtolower($lang).'/translation', 'word' => str_replace("'", "", $word_of_the_day->word)]);
+                                echo Html::a(str_replace("'", "", $word_of_the_day->word), ['/translator/arabic/translation', 'word' => str_replace("'", "", $word_of_the_day->word)]);
                                 ?>
                             </h1>
                                           <h4> <?php echo  $translation;?></h4>
@@ -176,7 +172,7 @@ $this->params['breadcrumbs'][] = $lang.' English Dictionary';
 
 
 
-                                    echo '<dd>' . Html::a(str_replace("'", "", $related_words[$i]->words[$j]), ['/translator/'.strtolower($lang).'/translation', 'word' => str_replace("'", "", $related_words[$i]->words[$j])]) . '</dd>';
+                                    echo '<dd>' . Html::a(str_replace("'", "", $related_words[$i]->words[$j]), ['/translator/arabic/translation', 'word' => str_replace("'", "", $related_words[$i]->words[$j])]) . '</dd>';
                                 }
                             }
                             ?>
@@ -206,7 +202,7 @@ $this->params['breadcrumbs'][] = $lang.' English Dictionary';
                 var range = window.getSelection() || document.getSelection() || document.selection.createRange();
                 var word = $.trim(range.toString());
                 if (word !== '') {
-                    window.location = ' http://dictionary3000.com/translator/<?php echo strtolower($lang) ?>/translation?word=' + word;
+                    window.location = ' http://dictionary3000.com/translator/arabic/translation?word=' + word;
                     //window.location = '/d3000c/web/dictionary/index?word=' + word;
 
                 }

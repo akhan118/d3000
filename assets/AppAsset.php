@@ -20,6 +20,7 @@ class AppAsset extends AssetBundle
     public $css = [
         
        'css/site.css',
+        'css/wiki.css',
         'css/custom.css',
 
     ];

@@ -30,19 +30,19 @@ class ArabicController extends Controller {
 
      
          /// Handing Translations for all controllers. 
-            $lang_code = 'ar';
-            $lang='Arabic';
-        $session = Yii::$app->session;
-        if ($session->has('lang_code')) {
-
-            $lang_code = $session->get('lang_code');
-           $lang= $session->get('lang');
-            $session->remove('lang');
-            $session->remove('lang_code');
-        }
-        
+//            $lang_code = 'ar';
+//            $lang='Arabic';
+//        $session = Yii::$app->session;
+//        if ($session->has('lang_code')) {
+//
+//            $lang_code = $session->get('lang_code');
+//           $lang= $session->get('lang');
+//            $session->remove('lang');
+//            $session->remove('lang_code');
+//        }
+//        
         // Passing the language variable to the layout at transmain.php
-             $this->view->params['lang'] =$lang;
+//             $this->view->params['lang'] =$lang;
 
        
        
@@ -53,19 +53,15 @@ class ArabicController extends Controller {
             
           
         ///cacheing word of the day
-                  
-    $word_of_the_day= Yii::$app->cache->get('word_of_day');
-  if ($word_of_the_day === false) {
+
     $word_of_the_day = $model->get_word_of_the_day();
     
-    
-  Yii::$app->cache->set('word_of_day', $word_of_the_day,36000);
-       }
+
 
             $word_text = $word_of_the_day->word;
             $model->setInput($word_text);
 
-                $transword= $model->translations($model->input,'en',$lang_code);
+                $transword= $model->translations($model->input,'en','ar');
           
                  if(!is_string($transword))
                      $transword=''; 
@@ -87,7 +83,7 @@ class ArabicController extends Controller {
                     'image' => $image,
                     'related_words' => $related_words,
                     'translation'=>$transword,
-                     'lang'=>$lang,
+                 
 
         ]);
     }
@@ -141,20 +137,7 @@ class ArabicController extends Controller {
 
         
          /// Handing Translations for all controllers. 
-            $lang_code = 'ar';
-            $lang='Arabic';
-        $session = Yii::$app->session;
-        if ($session->has('lang_code')) {
 
-            $lang_code = $session->get('lang_code');
-           $lang= $session->get('lang');
-            $session->remove('lang');
-            $session->remove('lang_code');
-        }
-        
-        // Passing the language variable to the layout at transmain.php
-       $this->view->params['lang'] =$lang;
-        
 
         /**
          *  Get the Model
@@ -200,7 +183,7 @@ class ArabicController extends Controller {
           
                 }else {
                 
-                       $transword= $model->translations($model->input,'en',$lang_code);
+                       $transword= $model->translations($model->input,'en','ar');
                                         $model->transword=$transword;
 
                  if(!is_string($transword))
@@ -249,18 +232,18 @@ class ArabicController extends Controller {
                     $suggestions = $model->spelling_suggestions();
                     
 
-                    return $this->render('translation', ['model' => $model,
+                    return $this->render('translation_1', ['model' => $model,
                                 'definition' => Null,
-                                'example' => $example,
+                                'example' => NULL,
                                 'audio' => NULL,
                                 'image' => $pix_image,
-                                'textproun'=>$text_pronun,
+                                'textproun'=>NULL,
 
                                 'translation'=>$transword,
                                 'wiki' => $wikipedia,
                                 'word' => $model->input,
                                 'suggestions' => $suggestions,
-                                'lang'=>$lang,]
+                             ]
                     );
                 } else {
 
@@ -271,7 +254,7 @@ class ArabicController extends Controller {
 
                     return $this->render('suggestions', ['suggestions' => $suggestions,
                                 'word' => $model->input,
-                                'lang'=>$lang]);
+                               ]);
                 }
             }
 
@@ -293,7 +276,7 @@ class ArabicController extends Controller {
                         'wiki' => $wikipedia,
                         'suggestions' => $suggestions,
                         'related_words' => $related_words,
-                                     'lang'=>$lang]);
+                                     ]);
         } else {
 
 

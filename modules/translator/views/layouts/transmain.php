@@ -23,11 +23,7 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
     <head>
         <?= Html::csrfMetaTags() ?>
- <?php 
-  
- $language=  strtolower($this->params['lang']);
 
-        if ($this->params['lang'] == 'Arabic') { ?>
             <meta property="og:type" content="website"/>
             <meta property="og:url" content="http://www.dictionary3000.com/translator/arabic"/>
             <meta property="og:image" content="http://www.Arabicenglishdictionary.org/images/parrot.png"/>
@@ -35,7 +31,6 @@ AppAsset::register($this);
             <meta property="109518715733173" content="USER_ID"/>
             <meta property="fb:page_id" content="109518715733173" />
 
-        <?php } ?>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <meta charset="<?= Yii::$app->charset ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">

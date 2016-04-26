@@ -15,7 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
   <ul class="list-group">
-          <li class="list-group-item"><?php echo Html::a('French English Translator', ['/translator/french/']); ?></li>
 
     <li class="list-group-item"><?php echo Html::a('Arabic English Translator', ['/translator/arabic']); ?></li>
 
