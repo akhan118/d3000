@@ -198,7 +198,7 @@ class Dictionary extends Model {
     public function twitter()
     {
         
-        $connection = new TwitterOAuth('S39FcyhaRIzh7eKubVXDLmCYF', 'koPg5xxI5e4mMHNEc6EvalQRp7usoxWbZsp0o9xAVN0iLbQhMt', '1177711112-PSykhFEsx1bteI1z3BwdiVPqXC7GyBcFgor6TiX', '5C8LO8Ipo3w8ZpMoSl8cUgl6C8lapl10FPEEE96j8on3j');
+        $connection = new TwitterOAuth('S39FcyhaRIzh7eKubVXDLmCYF', '', '', '5C8LO8Ipo3w8ZpMoSl8cUgl6C8lapl10FPEEE96j8on3j');
 //$content = $connection->get("account/verify_credentials");
 $statuses = $connection->get("search/tweets", array("q" => "yemen"));
      
@@ -207,7 +207,7 @@ $statuses = $connection->get("search/tweets", array("q" => "yemen"));
     }
 
     public function Fliker_search($query = null) {
-        $search = 'http://flickr.com/services/rest/?method=flickr.photos.search&api_key=' . '56a49e86e09dfa22887c4083a7e0d892' . '&safe_search=1&content_type=1' . '&text=' . urlencode($query) . '&per_page=5&format=php_serial';
+        $search = 'http://flickr.com/services/rest/?method=flickr.photos.search&api_key=' . '' . '&safe_search=1&content_type=1' . '&text=' . urlencode($query) . '&per_page=5&format=php_serial';
         $result = file_get_contents($search);
         $result = unserialize($result);
         return $result;
@@ -216,7 +216,7 @@ $statuses = $connection->get("search/tweets", array("q" => "yemen"));
     public function pixaAbayImage($query) {
 
         $query = strtolower($query);
-        $url = 'https://pixabay.com/api/?key=1777667-ba0c850270ba399bfb92d3161&q=' . urlencode($query) . '&image_type=photo&per_page=6';
+        $url = 'https://pixabay.com/api/?key=&q=' . urlencode($query) . '&image_type=photo&per_page=6';
 
         $curl_handle = curl_init();
         curl_setopt($curl_handle, CURLOPT_URL, $url);
@@ -415,7 +415,7 @@ $statuses = $connection->get("search/tweets", array("q" => "yemen"));
 
         $api = 'https://www.googleapis.com/language/translate/v2?';
 
-        $apiKey = 'AIzaSyDad5chnPdXoCS-1xjduE6CZupwvMTsZrQ';
+        $apiKey = '';
 
         $values = array(
             'key' => $apiKey,
@@ -455,7 +455,7 @@ $statuses = $connection->get("search/tweets", array("q" => "yemen"));
     function workink() {
 
 
-        $myAPIKey = 'a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
+        $myAPIKey = '';
 //$client = new \APIClient($myAPIKey, 'http://api.wordnik.com/v4');
 
         $client = new \APIClient($myAPIKey, 'http://api.wordnik.com:80/v4');
