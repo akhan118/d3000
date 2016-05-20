@@ -11,7 +11,7 @@ app\assets\resourceAsset::register($this);
 /* @var $this yii\web\View */
 
 
-$this->title = 'Definition of ' . $definition[0]->word.' | '.$definition[0]->word;
+$this->title =  $definition[0]->word.' - definition of ' .$definition[0]->word;
 ?>
 <div class="site-index">
     <div class="body-content ">

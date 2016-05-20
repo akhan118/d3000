@@ -51,7 +51,7 @@ AppAsset::register($this);
                         <form class="navbar-form custom_nav_form " role="search" method="get" action="<?php echo Url::to(['dictionary/index']) ?>">
                             <div class="input-group">
                                 <input type="text" name="Dictionary[input]" class="form-control" id="dictionary-input">            <div class="input-group-btn">
-                                    <button class="btn btn-default trans_submit_button" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                                 </div>
                             </div>
                         </form>
@@ -59,6 +59,7 @@ AppAsset::register($this);
 
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="nav navbar-nav custom_links_nav">
+                            <li><a href="<?php echo Url::to(['/translator']) ?>">Translator</a></li>
 
                         </ul>
                     </div>

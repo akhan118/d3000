@@ -24,4 +24,12 @@ $this->title = $name;
         Please contact us if you think this is a server error. Thank you.
     </p>
 
+      <div class="alert alert-info">
+          <p>
+              Oh Snap Homeslice ! </p>
+    </div>
+    <p>If you landed here looking for Arabic English Dictionary please check us out at</p>
+    <a href="http://www.arabicenglishdictionary.org" target="_blank">Arabic English Dictionary</a>
 </div>
+
+

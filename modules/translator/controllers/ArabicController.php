@@ -19,7 +19,7 @@ class ArabicController extends Controller {
 //            'only' => ['index','translation'],
 //           'duration' => 36000,
 //        ],  
-            
+//            
 
         ];
     }
@@ -68,10 +68,9 @@ class ArabicController extends Controller {
              /// cacheing text_pronoucetion
                 $text_pronun= $model->ink_get_getTextPronunciations();
                        $audio = $model->ink_get_audio();
-               $image = $model->pixaAbayImage($word_text);
+               $image = $model->Fliker_search($word_text);
             $related_words = $model->ink_get_synonym();
                  $model->meta_data_index();
-            
             
             
             
@@ -105,7 +104,9 @@ class ArabicController extends Controller {
                     $example = $model->ink_get_example();
                     $audio = $model->ink_get_audio();
                     //  $flikr_image= $model->Fliker_search($model->input);
-                    $pix_image = $model->pixaAbayImage($model->input);
+                   // $pix_image = $model->pixaAbayImage($model->input);
+                   $pix_image= $model->Fliker_search($model->input);
+
                     $wikipedia = $model->wikipediaCurl($model->input);
                 } else {
 
@@ -209,7 +210,9 @@ class ArabicController extends Controller {
 
                     $example = $model->ink_get_example();
                     $audio = $model->ink_get_audio();
-                    $pix_image = $model->pixaAbayImage($model->input);
+                    //$pix_image = $model->pixaAbayImage($model->input);
+                      $pix_image= $model->Fliker_search($model->input);
+
                     $wikipedia = $model->wikipediaCurl($model->input);
                     
                     
@@ -227,7 +230,8 @@ class ArabicController extends Controller {
                  *  @return Null values- are values that will not show in the view.
                  */ elseif ($wikipedia = $model->wikipediaCurl($model->input)) {
 
-                    $pix_image = $model->pixaAbayImage($model->input);
+                    //$pix_image = $model->pixaAbayImage($model->input);
+                    $pix_image= $model->Fliker_search($model->input);
 
                     $suggestions = $model->spelling_suggestions();
                     

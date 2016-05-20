@@ -23,7 +23,6 @@ class Dictionary extends Model {
     public $input;
     private $WordApi;
     private $wordsAPI;
-    public $transword;
 
     /**
      * @inheritdoc
@@ -40,161 +39,6 @@ class Dictionary extends Model {
         ];
     }
 
-        public function meta_data_results()
-    {
-
-     
-  $object_definition=$this->ink_get_def();
-  $example=  $this->ink_get_example();
-  if ($object_definition !=null)
-  {
-      $meta_description[]=null;
-      for ($i=0; $i < count($object_definition); $i++)
-      {
-               $meta_description[]=  $object_definition[$i]->text;
-      }
-                                  
-                               
-           $meta_keywords[]=null;      
-                               
-     for ($j=0; $j < count($example->examples);$j ++)
-      {
-               $meta_keywords[]=$example->examples[$j]->text; 
-      }
-          
-      $meta_keywords=implode(',', $meta_keywords);
-      
-      $meta_description= implode(' ', $meta_description);
-      $meta_description=  $this->input.':'.$meta_description;
-
-      
-  }
-      
-                                 
-         if ($meta_keywords ==null) {
-           $meta_keywords='English Dictionary, English English Dictionary, Dictionary English .';
-            } 
-        
-               if ($meta_description ==null) {
-           $meta_description='English dictionary with word defintions, examples, visuals and other cognitive connections.';
-            } 
-         
-            
-     
-            \Yii::$app->view->registerMetaTag([
-            'name' => 'robots',
-            'content' => 'index,follow'
-        ]);
-
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'description',
-            'content' => $meta_description
-        ]);
-
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'keywords',
-            'content' => $meta_keywords
-        ]); 
-      
-
-
-        
-    }
-    
-        public function meta_data_index()
-    {
-            
-            
-              
-  
-  $object_definition=$this->ink_get_def();
-  $example=  $this->ink_get_example();
-  $trans_word=$this->transword;
-  
-  
-
-  /// failed attemp at chaching the above.
-//                                 
-//          $object_definition=Yii::$app->cache->get('definition');
-//            if ($object_definition === false) {
-//                      $object_definition=$this->ink_get_def();
-//                       Yii::$app->cache->set('definition', $object_definition,36000);
-//              }
-//                    
-//                
-//                 $example=Yii::$app->cache->get('example');
-//            if ($example === false) {
-//  $example=  $this->ink_get_example();
-// Yii::$app->cache->set('example', $example,36000);
-//              }
-//                    
-//     
-//          $trans_word=Yii::$app->cache->get($lang.$today=date("m.d.y"));
-//          if ($trans_word === false) {
-//              $trans_word=$this->transword;
-// Yii::$app->cache->set('example', $trans_word,36000);
-//              }
-//                    
-                
-//  
-//             $meta_keywords[];      
-//      $meta_description[];
-
-  if ($object_definition !=null)
-  {
-
-      for ($i=0; $i < count($object_definition); $i++)
-      {   
-      $meta_description[]=  $object_definition[$i]->text;         
-      }
-    $meta_description= implode(',', $meta_description);                                                               
-  }
-  
-  
-    if ($example !=null)
-  {      for ($j=0; $j < count($example->examples);$j ++)
-      {
-               $meta_keywords[]=$example->examples[$j]->text; 
-      }
-     $meta_keywords=implode(',', $meta_keywords);
-
-  }
-  
-
-  
-      
-     
-         if (!isset($meta_keywords) ) {
-           $meta_keywords='English Dictionary, English English Dictionary, Dictionary English .';
-            } 
-        
-               if (!isset($meta_description)) {
-           $meta_description='English dictionary with word defintions, examples, visuals and other cognitive connections.';
-            } 
-         
-            
-            
-            
-            
-       \Yii::$app->view->registerMetaTag([
-            'name' => 'robots',
-            'content' => 'index,follow'
-        ]);
-
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'description',
-            'content' => $meta_description
-        ]);
-
-        \Yii::$app->view->registerMetaTag([
-            'name' => 'keywords',
-            'content' => $meta_keywords
-        ]); 
-        
-    }
-    
-    
-    
     public function twitter()
     {
         
@@ -203,7 +47,8 @@ class Dictionary extends Model {
 $statuses = $connection->get("search/tweets", array("q" => "yemen"));
      
 
-
+var_dump($statuses);
+     die();
     }
 
     public function Fliker_search($query = null) {
@@ -216,13 +61,13 @@ $statuses = $connection->get("search/tweets", array("q" => "yemen"));
     public function pixaAbayImage($query) {
 
         $query = strtolower($query);
-        $url = 'https://pixabay.com/api/?key=1777667-ba0c850270ba399bfb92d3161&q=' . urlencode($query) . '&image_type=photo&per_page=6';
+        $url = 'http://pixabay.com/api/?username=dictionary&key=a4233c43c2eb0bff8d24&q=' . urlencode($query) . '&image_type=photo&per_page=6';
 
         $curl_handle = curl_init();
         curl_setopt($curl_handle, CURLOPT_URL, $url);
         curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'www.dictionary3000.com app akhan118@hotmail.com');
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'www.dictionary3000.com bot akhan118@hotmail.com');
         $query = curl_exec($curl_handle);
         $error = curl_errno($curl_handle);
 
@@ -455,20 +300,18 @@ $statuses = $connection->get("search/tweets", array("q" => "yemen"));
     function workink() {
 
 
-        $myAPIKey = 'a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
+        $myAPIKey = '23631311975b9b88fa39b058846007e08bac8e96f14071b7d';
 //$client = new \APIClient($myAPIKey, 'http://api.wordnik.com/v4');
 
-        $client = new \APIClient($myAPIKey, 'http://api.wordnik.com:80/v4');
+        $client = new \APIClient($myAPIKey, 'http://api.wordnik.com/v4');
         $wordApi = new \WordApi($client);
         $wordsAPI= new \WordsApi($client);
 
         $this->WordApi = $wordApi;
         $this->wordsAPI=$wordsAPI;
 
-//$example = $wordApi->getDefinitions('irony');
-
-//var_dump($example);
-//die(__CLASS__);
+//$example = $wordApi->getTopExample('irony');
+//return $example->text;
     }
 
     /**

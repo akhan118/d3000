@@ -15,6 +15,8 @@ $config = [
         // Disable r= routes
         'enablePrettyUrl' => true,
         'rules' => array(
+                'dictionary<controller:\w+>/<action:\w+>' => 'dictionary/word',
+
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
@@ -29,7 +31,6 @@ $config = [
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
-
         ],
         'user' => [
             'identityClass' => 'app\models\User',

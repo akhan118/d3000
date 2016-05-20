@@ -4,10 +4,15 @@
    margin-left: 20px;
 
 }
+#trans_submit_button{
+   margin-right: 14px;
+        margin-left: 1px;
+
+}
 
 #dictionary_input_trans
 {   
-    width:180px;
+    width:200px;
     float: right;
 }
 
@@ -46,8 +51,14 @@
 }
 
 
-/// smallest screen size iphone4
-@media (max-width: 321px) {
+@media (max-width: 470px) {
+    
+        .custom_brand_collaps {
+
+        display: none;
+        font-family:initial
+
+    }
    
     #dictionary_input_trans
 {   
@@ -57,18 +68,20 @@
 
 #trans_submit_button{
    margin-right: 14px;
-}
+        margin-left: 1px;
 
 }
 
+}
+
+#trans_submit_button{
+   margin-right: 14px;
+        margin-left: 1px;
+
+}
 
 @media (max-width: 767px) {
-    .custom_brand_collaps {
 
-        display: none;
-        font-family:initial
-
-    }
 
 /*    #dictionary_input_trans
 {   
@@ -144,13 +157,17 @@
 
 #dictionary_input_trans
 {   
-    width:200px;
+    width:180px;
     float: right;
 }
 
 }
 
 
+.navbar-brand {
+
+    padding: 7px;
+}
 
 
 

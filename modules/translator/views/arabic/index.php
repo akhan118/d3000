@@ -12,10 +12,6 @@ localAssets::register($this);
 $this->title = 'Arabic English Dictionary |قاموس عربي انجليز  ';
 
 
-
-$this->params['breadcrumbs'][] = ['label' => 'Translators', 'url' => ['/translator']];
-$this->params['breadcrumbs'][] = 'Arabic English Dictionary';
-
 ?>
 
 
@@ -27,28 +23,9 @@ $this->params['breadcrumbs'][] = 'Arabic English Dictionary';
 
                        <div class="row">  
         
-     <div class="col-sm-offset-4 col-md-offset-4 col-lg-offset-4 col-sm-5 col-md-4 col-lg-5 form-inline">
 
-         <form id="w0" class="" action="<?php echo Url::to(['/translator/arabic/translation']) ?>" method="get" role="search"><div class="form-group field-dictionary-input">
-<label class="control-label" for="dictionary-input"></label>
-<input type="text" id="dictionary-input" class="form-control keyboardInput" name="Dictionary[input]">
-
-<div class="help-block"></div>
-</div><button type="submit" class="btn btn-primary pull-right" name="search_button">Search</button></form>
-
-         
-
-
-     </div>
                     <div class="col-xs-12 col-sm-8 col-md-8">
-                        <div class="col-xs-12 col-sm-8 col-md-8 margin_top_wfd">
-                            <div class="col-xs-1 col-sm-1 col-md-1">
-                                <span class="glyphicon glyphicon-calendar fa-lg"> </span>
-                            </div>
-                            <div class="col-xs-8 col-sm-5 col-md-4 ">
-                                <p class="badge">Word Of The Day</p>
-                            </div>
-                        </div>
+                 
                         <div class="col-xs-12 col-sm-11 col-md-6 clickable">
                             <h1 class="h2_border">
                                 <?php
@@ -69,89 +46,89 @@ $this->params['breadcrumbs'][] = 'Arabic English Dictionary';
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <p class="text-muted"> <?php  echo $text_pronun; ?></p>
                             <div class="col-xs-12 col-sm-12 clickable ">
-
+                                <ul>
                               <?php     
                                     for ($i = 0; $i < count($definitions); $i++) {
-                                        echo '<blockquote cite="'.$definitions[$i]->source.'">';
+                                        echo '<li>';
+                                       
                                         echo '<p>'.$definitions[$i]->text.'</p>';
-                                        echo '<footer> <cite title="'.$definitions[$i]->source.'">'.$definitions[$i]->source.'</cite> </footer>';
-                                        echo '</blockquote>';
+                                       // echo '<footer> <cite title="'.$definitions[$i]->source.'">'.$definitions[$i]->source.'</cite> </footer>';
+                                        echo '</li>';
+                                        
                                     }
                                     ?>
+                                </ul>
                             </div> 
                         </div>
                     </div>
 
 
                 <div class="col-xs-12 col-sm-4 col-md-4">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- d3000_trans_index_336x280 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2713579882698065"
-     data-ad-slot="5035223247"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
                 </div>
 
 
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-10 col-md-8  ">
-                        <?php
+                       <?php
                         
-                        if (!count($image['hits']) == 0) {
-                            
-                  echo '<h4 class="text-muted lead">Visuals for '.$word_of_the_day->word.'</h4>';
+                                           echo '<h4>Visuals for ' . $word_of_the_day->word . '</h4>';
 
+                        echo '<ul>';      
+                        
+                        foreach($image['photos']['photo'] as $image) { 
+	// the image URL becomes somthing like 
+	// http://farm{farm-id}.static.flickr.com/{server-id}/{id}_{secret}.jpg  
+$page_url= 'http://farm' . $image["farm"] . '.static.flickr.com/' . $image["server"] . '/' . $image["id"] . '_' . $image["secret"] . '_b.jpg '; 
+$Preview= 'http://farm' . $image["farm"] . '.static.flickr.com/' . $image["server"] . '/' . $image["id"] . '_' . $image["secret"] . '_q.jpg '; 
 
-                            foreach ($image['hits'] as $photo) {
-                                $Preview = $photo['previewURL'];
+                                      echo '<a target="_blank" href="' . $page_url . '"><img  src="' . $Preview . '"   '
+                               . 'height="80" width="80" ></a>';
+        
+        
+        
+                        } 
+                        
+                                                                       echo '</ul>';
+     
 
-                                $page_url = $photo['pageURL'];
-
-                                echo '<a target="_blank" href="' . $page_url . '"><img  src="' . $Preview . '"   '
-                                . 'height="80" width="80" ></a>';
-                            }
-                        }
                         ?>
                         <span class="clickable">
                         </span>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-8 ">
-                        <h4 class="text-muted lead
-                            ">Examples For <?php echo $word_of_the_day->word ?></h4>
+                        <h4 class="">Examples For <?php echo $word_of_the_day->word ?></h4>
                         <span class="clickable">
-
+                            <ul>
                                 <?php
                                 $examples = $word_of_the_day->examples;
                                /// var_dump($examples);
                                 for ($i = 0; $i < count($examples); $i++) {
 
-                                    
-                                    
-                                        echo '<blockquote cite="'.$examples[$i]->url.'">';
-                                        echo '<p>'.$examples[$i]->text .'</p>';
-                                        echo '<footer> <cite title="'.$examples[$i]->title.'">'.Html::a($examples[$i]->title ,$examples[$i]->url,array('target'=>'blank')).'</cite> </footer>';
-                                        echo '</blockquote>';
+                                                                            echo '<li>';
 
-                                }
+                                    
+                                       // echo '<blockquote cite="'.$examples[$i]->url.'">';
+                                        echo '<p>'.$examples[$i]->text .'</p>';
+                                     //   echo '<footer> <cite title="'.$examples[$i]->title.'">'.Html::a($examples[$i]->title ,$examples[$i]->url,array('target'=>'blank')).'</cite> </footer>';
+                                    //    echo '</blockquote>';
+
+                                      echo '<small>  <p class="text-muted">'.Html::a($examples[$i]->title ,$examples[$i]->url,array('target'=>'blank')).'</p> </small>';
+                                        echo '</li>';
+
+                                        }
                                 ?>
-                            
+                            </ul>
                         </span>
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-8 ">
-                        <h4 class="text-muted lead
-                            ">Notes For <?php echo $word_of_the_day->word ?></h4>
+                        <h4 class="">Notes For <?php echo $word_of_the_day->word ?></h4>
                         <span class="clickable">
                                 <?php
                                    
-                                        echo '<blockquote cite="www.wordnik.com">';
                                         echo '<p>'.$word_of_the_day->note.'</p>';
                             
-                                        echo '</blockquote>';
                                         
                                 ?>
                         </span>

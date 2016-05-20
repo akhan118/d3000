@@ -57,45 +57,45 @@ AppAsset::register($this);
         <div class="wrap">
             
                        <?php
-            NavBar::begin([
-                'brandLabel' => '<i class="fa fa-flag fa-lg"> Dictionary3000</i>     ',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-
-
-
-
-
-
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
-                    ['label' => 'Translator', 'url' => ['/translator']],
-//                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
-//                    Yii::$app->user->isGuest ?
-//                            ['label' => 'Login', 'url' => ['/site/login']] :
-//                            ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-//                        'url' => ['/site/logout'],
-//                        'linkOptions' => ['data-method' => 'post']],
-                ],
-            ]);
+//            NavBar::begin([
+//                'brandLabel' => '<i class="fa fa-flag fa-lg"> Dictionary3000</i>     ',
+//                'brandUrl' => Yii::$app->homeUrl,
+//                'options' => [
+//                    'class' => 'navbar-inverse navbar-fixed-top',
+//                ],
+//            ]);
+//
+//
+//
+//
+//
+//
+//            echo Nav::widget([
+//                'options' => ['class' => 'navbar-nav navbar-right'],
+//                'items' => [
+//                    ['label' => 'Translator', 'url' => ['/translator']],
+////                    ['label' => 'About', 'url' => ['/site/about']],
+//                    ['label' => 'Contact', 'url' => ['/site/contact']],
+////                    Yii::$app->user->isGuest ?
+////                            ['label' => 'Login', 'url' => ['/site/login']] :
+////                            ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+////                        'url' => ['/site/logout'],
+////                        'linkOptions' => ['data-method' => 'post']],
+//                ],
+//            ]);
+//            
+//            
+//            
+//            NavBar::end();
+//            ?>
             
-            
-            
-            NavBar::end();
-            ?>
-            
 
-<!--            <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top custom_nav" role="navigation">
+            <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top custom_nav" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
 
                         <a class="navbar-brand" href="<?= Yii::$app->homeUrl ?>"><p class="glyphicon glyphicon-knight glyphicon_horse"> <span class="custom_brand_collaps">Dictionary3000</span></p></a>
-                        <form class="navbar-form custom_nav_form " role="search" method="get" action="<?php //echo Url::to(['/translator/'.$language.'/translation']) ?>">
+                        <form class="navbar-form custom_nav_form " role="search" method="get" action="<?php echo Url::to(['/translator/arabic/translation']) ?>">
                             <div class="input-group">
                                 <input type="text" name="Dictionary[input]" class="keyboardInputCenter form-control " id="dictionary_input_trans">            <div class="input-group-btn">
                                     <button class="btn btn-default" id="trans_submit_button" type="submit"><span class="glyphicon glyphicon-search"></span></button>
@@ -111,7 +111,7 @@ AppAsset::register($this);
 
 
                 </div>
-            </nav>
+            </nav><!--
 -->
 
 
@@ -120,11 +120,7 @@ AppAsset::register($this);
 
 
             <div class="container">
-                <?=
-                Breadcrumbs::widget([
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                ])
-                ?>
+
 
 
 
