@@ -138,7 +138,7 @@ class Dictionary extends Model {
                 
 //  
 //             $meta_keywords[];      
-//      $meta_description[];
+//    $meta_description[];
 
   if ($object_definition !=null)
   {
@@ -150,8 +150,8 @@ class Dictionary extends Model {
     $meta_description= implode(',', $meta_description);                                                               
   }
   
-  
-    if ($example !=null)
+
+    if ($example->examples !=null)
   {      for ($j=0; $j < count($example->examples);$j ++)
       {
                $meta_keywords[]=$example->examples[$j]->text; 
@@ -207,7 +207,12 @@ $statuses = $connection->get("search/tweets", array("q" => "yemen"));
     }
 
     public function Fliker_search($query = null) {
-        $search = 'http://flickr.com/services/rest/?method=flickr.photos.search&api_key=' . '56a49e86e09dfa22887c4083a7e0d892' . '&safe_search=1&content_type=1' . '&text=' . urlencode($query) . '&per_page=5&format=php_serial';
+        if ($query =='clitoris')
+        {
+          $query='peace'  ;
+            
+        }
+        $search = 'http://flickr.com/services/rest/?method=flickr.photos.search&is_commons=true&api_key=' . '56a49e86e09dfa22887c4083a7e0d892' . '&safe_search=1&content_type=1' . '&text=' . urlencode($query) . '&per_page=5&format=php_serial';
         $result = file_get_contents($search);
         $result = unserialize($result);
         return $result;

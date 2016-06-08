@@ -60,6 +60,7 @@ AppAsset::register($this);
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="nav navbar-nav custom_links_nav">
 
+<li><a href="/d3000c/web/site/login">Login</a></li>
                         </ul>
                     </div>
                 </div>

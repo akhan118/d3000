@@ -15,11 +15,11 @@ class SiteController extends Controller {
         return [
 
 
-            [
-            'class' => 'yii\filters\PageCache',
-            'only' => ['index'],
-            'duration' => 12000,
-        ],    
+//            [
+//            'class' => 'yii\filters\PageCache',
+//            'only' => ['index'],
+//            'duration' => 12000,
+//        ],    
 
 
             'access' => [

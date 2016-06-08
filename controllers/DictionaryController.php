@@ -24,12 +24,12 @@ class DictionaryController extends Controller {
         return [
             
             
-                        [
-            'class' => 'yii\filters\PageCache',
-            'only' => ['definition'],
-            'duration' => 36000,
-        ],  
-            
+//                        [
+//            'class' => 'yii\filters\PageCache',
+//            'only' => ['definition'],
+//            'duration' => 36000,
+//        ],  
+//            
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout'],
