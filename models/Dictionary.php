@@ -420,7 +420,7 @@ $statuses = $connection->get("search/tweets", array("q" => "yemen"));
 
         $api = 'https://www.googleapis.com/language/translate/v2?';
 
-        $apiKey = 'AIzaSyDad5chnPdXoCS-1xjduE6CZupwvMTsZrQ';
+        $apiKey = 'xxxxxxxxx';
 
         $values = array(
             'key' => $apiKey,
